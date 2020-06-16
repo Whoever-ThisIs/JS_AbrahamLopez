@@ -1,0 +1,20 @@
+canvas{
+  background-image: url("imagenes/wps.jpg");
+}
+.gen{
+  width: 1000px;
+  background-image: url("imagenes/otro.jpg");
+}
+.puntaje{
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 72px;
+  color: white;
+}
+button{
+  background-image: url("imagenes/neo.jpg");
+  height: 50px;
+  width: 100px;
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 22px;
+  color: white;
+}
