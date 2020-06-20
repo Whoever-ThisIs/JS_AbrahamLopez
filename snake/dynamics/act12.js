@@ -39,18 +39,18 @@ function fruta(){
 //Direccion
 let xv = 0;
 let yv = xv;
-
+//Arreglo de la serpiente
 let serpi = [];
 let cola = 1;
 let puntos = 0;
-
+//Botones
 let izquierda = document.getElementById("Izquierda");
 let arriba = document.getElementById("Arriba");
 let derecha = document.getElementById("Derecha");
 let abajo = document.getElementById("Abajo");
 
 var puntaje = document.getElementById("puntaje");
-
+//Efecto Pacman
 function game() {
     px += xv;
     py += yv;
@@ -66,13 +66,15 @@ function game() {
     if(py > nc - 1) {
         py = 0;
     }
+    //QUita rectangulos donde ya no esta
     ctx.clearRect(0,0,cvs.width,cvs.height);
-
+    //Pintar el personaje
     let cont = 0;
     for(var i = 0 ; i < serpi.length ; i++) {
       if(serpi.length != 1){cont++}
       ctx.fillStyle = "#FEE9A9";
       ctx.fillRect(serpi[i].x*tt,serpi[i].y*tt,tt-2,tt-2);
+      //Colisión
       if(serpi[i].x==px && serpi[i].y==py && cont > 0) {
           cola = 0;
           alert("Has matado a la bella serpi>:(");
@@ -83,6 +85,7 @@ function game() {
     while(serpi.length>cola) {
       serpi.shift();
     }
+    //Fruta
     if(fx == px && fy == py) {
 
         cola++;
@@ -100,6 +103,7 @@ function game() {
     }
     puntaje.innerText = puntos;
 }
+//Controles
 let d = "";
 function keyPush(evt) {
     switch(evt.keyCode) {

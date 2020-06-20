@@ -1,4 +1,4 @@
-
+//Solo es un callback hell de mandar numeros y pedirlos de vuelta;
 setTimeout(()=>{
   var a = Math.floor(Math.random()*(99))
   alert("Tu nuevo número es "+a);

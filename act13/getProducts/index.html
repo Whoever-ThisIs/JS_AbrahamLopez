@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos</title>
+  <link rel="stylesheet" href="statics/styles/index.css">
+</head>
+
+<body>
+  <div class="form-container">
+    <h2>Buscar productos:</h2>
+    <form id="myForm">
+      <div class="field">
+        <label for="clave">Palabra clave:</label>
+        <input type="text" name="clave" id="clave">
+      </div>
+      <div>
+        <input type="submit" value="Buscar">
+      </div>
+    </form>
+  </div>
+  <div class="table-container">
+    <table>
+      <thead>
+        <th>Clave:</th>
+        <th>Nombre:</th>
+        <th>Disponibilidad:</th>
+        <th>Tipo:</th>
+      </thead>
+      <tbody id="table-content">
+      </tbody>
+    </table>
+  </div>
+</body>
+<script src="js/index.js"></script>
+
+</html>

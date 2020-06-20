@@ -1,115 +1,126 @@
-var pa = new Promise(
-  function(resolve, reject){
-    var a = Math.floor(Math.random()*(99));
-    alert("Tu nuevo número es "+a);
-    var ar = prompt("¿Qué número era?")
-    if (ar == a) {
-      var bien = "Bien hecho :D";
-      resolve(bien);
-    }else{
-      var mal = new Error("Simón está triste, te has equivocado :c");
-      reject(mal);
-    }
-  }
-)
-var pb = new Promise(
-  function(resolve, reject){
-    var b = Math.floor(Math.random()*(99));
-    alert("Tu nuevo número es "+b);
-    var br = prompt("¿Qué número era?")
-    if (br == b) {
-      resolve(pa);
-    }else{
-      var mal = new Error("Simón está triste, te has equivocado :c");
-      reject(mal);
-    }
-  }
-)
-var pc = new Promise(
-  function(resolve, reject){
-    var c = Math.floor(Math.random()*(99));
-    alert("Tu nuevo número es "+c);
-    var cr = prompt("¿Qué número era?")
-    if (cr == c) {
-      resolve(pb);
-    }else{
-      var mal = new Error("Simón está triste, te has equivocado :c");
-      reject(mal);
-    }
-  }
-)
-var pd = new Promise(
-  function(resolve, reject){
-    var d = Math.floor(Math.random()*(99));
-    alert("Tu nuevo número es "+d);
-    var dr = prompt("¿Qué número era?")
-    if (dr == d) {
-      resolve(pc);
-    }else{
-      var mal = new Error("Simón está triste, te has equivocado :c");
-      reject(mal);
-    }
-  }
-)
-var pe = new Promise(
-  function(resolve, reject){
-    var e = Math.floor(Math.random()*(99));
-    alert("Tu nuevo número es "+e);
-    var er = prompt("¿Qué número era?")
-    if (er == e) {
-      resolve(pd);
-    }else{
-      var mal = new Error("Simón está triste, te has equivocado :c");
-      reject(mal);
-    }
-  }
-)
+function random(min,max){
+  return Math.round(Math.random()*(max-min)+min);
+}
+var nuevo = "Tu nuevo número es ";
+var bien = "Bien hecho, ganasteB)";
+var mal = "Simón está triste, te has equivocado :c";
 
+let numeros = [];
+for (var i = 0; i < 5; i++) {
+  numeros.push(random(1,99));
+}
 
-/*var a = Math.floor(Math.random()*(99))
-alert("Tu nuevo número es "+a);
-var ar = prompt("¿Qué número era?")
-const proma = new Promise(
-  function(resolve,reject){
-    if (ar == a){
-      var exito = "Ganaste B)";
-      resolve(exito);
-    }
-    else {
-      var fracaso = new Error("Simón está triste, te has equivocado :c");
-      reject(fracaso);
-    }
-  }
-);
-
-var promb = function(exito){
-  var b = Math.floor(Math.random()*(99))
-  var message = alert("Tu nuevo número es "+b);
-  var br = prompt("¿Qué número era?")
-  if (br==b) {
-    proma
-    //un error por aqui
-    return Promise.resolve(exito)
+function nuevoNumero(numero){
+  var nummer = numeros.shift()
+  if (nummer) {
+    
   }
 }
-var promc = function(exito){
-  var c = Math.floor(Math.random()*(99))
-  var message = alert("Tu nuevo número es "+c);
-  var br = prompt("¿Qué número era?")
-  if (cr==c) {
-    promb
-    return Promise.resolve(exito)
-  }
-}*/
 
-var preguntar = function(){
-  pa
-  .then(function (fulfilled){
-    alert(fulfilled)
-  })
-  .catch(function(error){
-    alert(error.message);
+
+
+
+/*
+var promesaA = new Promise(function(resolve, reject) {
+
+  alert(nuevo + a);
+  var respuestaA = prompt("¿Qué número era?");
+  if (respuestaA == a) {
+    resolve();
+  }
+  reject(mal);
+});
+
+
+promesaA.then(()=>{
+  var promesaB = new Promise(function(resolve, reject) {
+
+    alert(nuevo + b);
+    var respuestaB = prompt("¿Qué número era?");
+    if (respuestaB == b) {
+      respuestaA = prompt("¿Y el anterior?");
+      if (respuestaA == a) {
+        resolve();
+      }
+    }
+    reject();
   });
-}
+}).catch(()=>{
+  alert(mal);
+});
 
-preguntar();
+promesaB.then(()=>{
+  var promesaC = new Promise(function(resolve, reject) {
+
+    alert(nuevo + c);
+    var respuestaC = prompt("¿Qué número era?");
+    if (respuestaC == c) {
+      respuestaB = prompt("¿Y el anterior?");
+      if (respuestaB == b) {
+        respuestaA = prompt("¿Y antes de ese?");
+        if (respuestaA == a) {
+          resolve();
+        }
+      }
+    }
+    reject();
+  });
+}).catch(()=>{
+  alert(mal);
+})
+
+promesaC.then(()=>{
+  var promesaD = new Promise(function(resolve, reject) {
+
+    alert(nuevo + d);
+    var respuestaD = prompt("¿Qué número era?");
+    if (respuestaD == d) {
+      respuestaC = prompt("¿El que iba antes de ese?");
+      if (respuestaC == c) {
+        respuestaB = prompt("¿Y el anterior?");
+        if (respuestaB == b) {
+          respuestaA = prompt("¿Y antes de ese?");
+          if (respuestaA == a) {
+            resolve();
+          }
+        }
+      }
+    }
+    reject();
+  });
+}).catch(()=>{
+  alert(mal);
+})
+
+promesaD.then(()=>{
+  var promesaE = new Promise(function(resolve, reject) {
+
+    alert(nuevo + e);
+    var respuestaE = prompt("¿Qué número era?");
+    if (respuestaE == e) {
+      respuestaD = prompt("¿Y antes de ese?");
+      if (respuestaD == d) {
+        respuestaC = prompt("¿El que iba antes?");
+        if (respuestaC == c) {
+          respuestaB = prompt("¿Y el anterior?");
+          if (respuestaB == b) {
+            respuestaA = prompt("¿Y el primerito?");
+            if (respuestaA == a) {
+              resolve(bien);
+            }
+          }
+        }
+      }
+    }
+    reject();
+  });
+}).catch(()=>{
+  alert(mal);
+})
+
+promesaE.then((message)=>{
+  alert(bien);
+}).catch(()=>{
+  alert(mal);
+})
+*/

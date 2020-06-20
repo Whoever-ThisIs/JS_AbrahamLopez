@@ -1,0 +1,8 @@
+.graf{
+  width: 50%;
+}
+.class{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
