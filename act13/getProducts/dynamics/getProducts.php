@@ -6,10 +6,30 @@
  ***********************************/
 include('config.php');
 
-function getProducts($name)
+if (isset($_GET['name'])) {
+	$name = $_GET['name'];
+}
+if (isset($_GET['tipo'])) {
+	$filtro = $_GET['tipo'];
+}
+if (isset($_GET['name'])&&isset($_GET['tipo'])) {
+	$preresult = "SELECT product.id, product.name, product.disponibilidad, tipo.name AS tipo FROM product JOIN tipo ON product.tipo=tipo.id WHERE UPPER(product.name) LIKE UPPER('%$name%') AND tipo.id LIKE $filtro";
+}
+else if (isset($_GET['name'])&&!isset($_GET['tipo'])) {
+	$preresult = "SELECT product.id, product.name, product.disponibilidad, tipo.name AS tipo FROM product JOIN tipo ON product.tipo=tipo.id WHERE UPPER(product.name) LIKE UPPER('%$name%')";
+}
+else if (!isset($_GET['name'])&&isset($_GET['tipo'])) {
+	$preresult = "SELECT product.id, product.name, product.disponibilidad, tipo.name AS tipo FROM product JOIN tipo ON product.tipo=tipo.id WHERE tipo.id LIKE $filtro";
+}
+else {
+	$preresult = "SELECT product.id, product.name, product.disponibilidad, tipo.name AS tipo FROM product JOIN tipo ON product.tipo=tipo.id";
+}
+
+function getProducts($preresult)
 {
 	$con = connect();
-	$result = mysqli_query($con,"SELECT product.id, product.name, product.disponibilidad, tipo.name AS tipo FROM product JOIN tipo ON product.tipo=tipo.id WHERE UPPER(product.name) LIKE UPPER('%$name%')");
+
+	$result = mysqli_query($con,$preresult);
 
 	$response = [];
 	while($row = mysqli_fetch_assoc($result))
@@ -19,10 +39,4 @@ function getProducts($name)
 
 	return $response;
 }
-
-if (isset($_GET['name'])) {
-	getProducts($_GET['name']);
-	echo json_encode(getProducts($_GET['name']));
-}
-else
-	echo json_encode(1);
+echo json_encode(getProducts($preresult));

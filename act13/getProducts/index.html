@@ -12,9 +12,31 @@
   <div class="form-container">
     <h2>Buscar productos:</h2>
     <form id="myForm">
-      <div class="field">
-        <label for="clave">Palabra clave:</label>
-        <input type="text" name="clave" id="clave">
+      <div class="vfields">
+        <div class="field">
+          <label for="clave">Palabra clave:</label>
+          <input type="text" name="clave" id="clave">
+        </div>
+        <div class="dropdown">
+          <div class="dropbtn">Filtros</div>
+          <div class="dropdown-content">
+            <div class="tipo">
+              <input type="radio" name="tipo" value="1">Limpieza
+            </div>
+            <div class="tipo">
+              <input type="radio" name="tipo" value="2">Condimentos
+            </div>
+            <div class="tipo">
+              <input type="radio" name="tipo" value="3">Alimentos preparados
+            </div>
+            <div class="tipo">
+              <input type="radio" name="tipo" value="4">Alimentos empaquetados
+            </div>
+            <div class="tipo">
+              <input type="radio" name="tipo" value="5">Alimentos enlatados
+            </div>
+          </div>
+        </div>
       </div>
       <div>
         <input type="submit" value="Buscar">
@@ -32,6 +54,11 @@
       <tbody id="table-content">
       </tbody>
     </table>
+  </div>
+  <div class="cajaeditar" id="cajita"></div>
+  <div align="center" class="redirigir">
+    <button type="button" id="edicion">Editar registros</button>
+    <a href="create.html">Ir a "crear"</a>
   </div>
 </body>
 <script src="js/index.js"></script>

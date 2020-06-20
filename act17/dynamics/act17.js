@@ -86,9 +86,10 @@ function boceto(ctx, radio) {
   ctx.stroke();
 }
 //Establece segundos a grados
+//Desgraciadamente no encontre el número exacto para poder tener cambios perfectos
 function movimiento(ctx, radio,centiseconds){
-  var centisecondsa = (centiseconds*Math.PI/52.19);
-  var centisecondsb = (centiseconds*Math.PI/-52.19);
+  var centisecondsa = (centiseconds*Math.PI/52.211);
+  var centisecondsb = (centiseconds*Math.PI/-52.211);
   drawHand(ctx, centisecondsa,centisecondsb, radio*0.000001);
 }
 

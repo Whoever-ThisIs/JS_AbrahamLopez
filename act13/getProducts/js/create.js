@@ -22,9 +22,11 @@ function saveDataAsync() {
     .then((response) => {
       return response.json();
     }).then((data) => {
-      console.log(data);
+      document.getElementById('mensaje').innerHTML = "<h1>El nuevo producto ha sido creado exitosamente</h1>";
       document.getElementById('miForm').reset();
-    })
+    }).catch((message)=>{
+      alert(message);
+    });
 }
 
 /////Añadimos un manejador de eventos para cuando el formulario se envíe/////
