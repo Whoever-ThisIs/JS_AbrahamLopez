@@ -1,67 +1,14 @@
 $(document).ready(()=>{
   body();
-  var titulo = document.getElementsByClassName("titulo").value;
-  if (titulo == undefined) {
-    titulo = "Gráfica";
-  }
-  if (graphic.length > 0) {
-
-    for (var i = 0; i < graphic.length; i++) {
-      labels.push(graphic[i].name);
-      bgColors.push(graphic[i].color);
-      values.push(graphic[i].value);
-    }
-  }
-  var type = document.getElementById("type").value;
-  let ctx = $("#canvas")[0].getContext("2d");
-  if (labels.length != 0 && bgColors.length != 0 && values.length != 0) {
-    console.log("xd");
-    let grafica = new Chart(ctx, {
-
-      type: type,
-      data: {
-        labels: inlabels(),
-        datasets: [{
-          backgroundColor: inbg(),
-          data: invalues(),
-        }]
-      },
-
-      options: {
-        title:{
-          display: true,
-          text: titulo
-        }
-      }
-    });
-  }
-  $(".go").click(()=>{
-    for (var i = 0; i < elements; i++) {
-      var name = document.getElementsByClassName("name");
-      console.log(name);
-      var value = document.getElementsByClassName("value");
-      console.log(value);
-      var color = document.getElementsByClassName("color");
-      console.log(color);
-      if (name[0].value != undefined && value[0].value != undefined && color[0].value != undefined) {
-        var data = {
-          name: name[i].value,
-          value: value[i].value,
-          color: color[i].value
-        }
-        graphic.push(data)
-      }
-    }
-    console.log(graphic);
-  })
 });
 
+//Variables
 let elements = 1;
-let graphic = [];
 let labels = [];
 let bgColors = [];
 let values = [];
 
+//Pinta el formulario
 function body(){
   let formA = "<form class='' action='index.html' method='post'>"+
   "<fieldset>"+
@@ -75,58 +22,99 @@ function body(){
   "<button type='button' class='go'>Graficar</button>"+
   "<button type='button' class='add'>Agregar dato</button><br>";
   let element = "<input type='text' class='name' placeholder='Nombre'>"+
-  "<input type='text' class='value' placeholder='Valor'>"+
+  "<input type='number' class='value' placeholder='Valor'>"+
   "<input type='color' class='color'>"+
   "<button type='button' class='delete'>Eliminar</button><br>";
   let formB = "</fieldset>"+
   "</form>";
 
+//Dependiendo del número de datos, agrega datos
   for (var i = 0; i < elements; i++) {
     formA += element
   }
   formA += formB
   document.getElementById('myform').innerHTML = formA;
+  //Borra un dato
   $(".delete").click(()=>{
     if (elements>1) {
       elements--;
     }
     body();
   })
+  //agrega un dato
   $(".add").click(()=>{
     elements++;
     body();
   })
+  //Manda a pintar en el canvas
+  rest();
 }
-function inlabels(){
-  let x = "["
-  for (var i = 0; i < labels.length; i++) {
-    x += "'"+labels[i]+"'";
-    if (labels[i] != labels.length - 1) {
-      x += ","
+function rest(){
+  //Si se apreta graficar...
+  $(".go").click(()=>{
+    //...recupera los valores del formulario
+    let validador = 0;
+    let validador2 = 0;
+    var name = $(".name").each(function(){labels.push($(this).val())});
+    var value = $(".value").each(function(){values.push($(this).val())});
+    var color = $(".color").each(function(){bgColors.push($(this).val())});
+    var titulo = $("#titulo").val();
+    //Si no hay título pone el preestablecido
+    if (titulo == undefined) {
+      titulo = "Gráfica";
     }
-  }
-  x += "]";
-  return x;
-}
-function inbg(){
-  let y = "["
-  for (var i = 0; i < bgColors.length; i++) {
-    y += "'"+bgColors[i]+"'";
-    if (bgColors[i] != bgColors.length - 1) {
-      y += ","
+    var type = document.getElementById("type").value;
+    let ctx = $("#canvas")[0].getContext("2d");
+    //Revisa que no haya datos vacíos
+    for (var i = 0; i < labels.length; i++) {
+      if (labels[i] == "" || bgColors[i] == "" || values[i] == ""){
+        validador++;
+      }
+      //o negativos en los valores
+      if (values[i] < 0) {
+        validador2++;
+      }
     }
-  }
-  y += "]";
-  return y;
-}
-function invalues(){
-  let z = "["
-  for (var i = 0; i < values.length; i++) {
-    z += values[i];
-    if (values[i] != values.length - 1) {
-      z += ","
+    //Si todo esta en orden
+    if (validador == 0 && validador2 == 0) {
+      //Pinta la gráfica con los valores establecidos
+      let grafica = new Chart(ctx, {
+
+        type: type,
+        data: {
+          labels: labels,
+          datasets: [{
+            backgroundColor: bgColors,
+            data: values,
+          }]
+        },
+
+        options: {
+          title:{
+            display: true,
+            text: titulo
+          }
+        }
+      });
+      //Borra el formulario e inserta un boton que recarga la página
+      $("#myform").html("<button id='reset'>Crear nueva gráfica</button>");
+      $("#reset").click(()=>{
+        window.location.reload();
+      })
     }
-  }
-  z += "]";
-  return z;
+    //Si hay algo faltante o negativo
+    else{
+      //Borra los datos antes proporcionados
+      labels.splice(0,labels.length);
+      bgColors.splice(0,bgColors.length);
+      values.splice(0,values.length);
+      //E imprime el mensaje correspondiente
+      if (validador != 0) {
+        alert("Revisa que no te haya faltado ningún dato por llenar")
+      }
+      if (validador2 != 0) {
+        alert("Asegurate de haber ingresado valores válidos")
+      }
+    }
+  })
 }
