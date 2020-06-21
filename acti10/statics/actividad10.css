@@ -1,0 +1,10 @@
+td{
+  width: 100px;
+  height: 100px;
+}
+.par{
+  background-color: #c14141;
+}
+.impar{
+  background-color: #d2cdcd;
+}

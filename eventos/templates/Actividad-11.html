@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../statics/Actividad-11.css">
+    <title>Actividad 11</title>
+</head>
+<body>
+    <h1>Eventos y mas eventos</h1>
+    <table>
+        <tr>
+            <th id="nombre">Nombre de evento</th>
+            <th id="descripcion">Descripción</th>
+            <th id="ejemplo">Ejemplo</th>
+        </tr>
+        <tr>
+            <td>.onfocus y .onblur</td>
+            <td>Estos eventos suceden cuando de hace focus sobre un elemento del documento y cuando se quita el focus del elemento.</td>
+            <td>Intenta llenarme:
+                <br>
+                <input type="text" id="focus" readonly value="Intenta llenarme :))">
+            </td>
+        </tr>
+        <tr>
+            <td>.ondblclick</td>
+            <td>Este evento se da cuando se le da doble click al elemento.</td>
+            <td>Dame doble click
+                <br>
+                <button id="doubleClick">Dame doble click</button>
+            </td>
+        </tr>
+        <tr>
+            <td>.onkeypress</td>
+            <td>El evento abarca cuando se presiona una tecla y se deja de presionar.</td>
+            <td>Pulsa cualquier tecla para aumentar el numero
+                <br>
+                <input type="number" name="" id="keypress" value="0" readonly>
+            </td>
+        </tr>
+        <tr>
+            <td>.onkeydown</td>
+            <td>El evento abarca cuando se presiona una tecla (no incluye cuando se suelta)</td>
+            <td>Dale focus al input y cambia el color de este input usando las flechas
+                <input type="text" name="" id="keydown" value="RGBA(0,0,0,0)" readonly>
+            </td>
+        </tr>
+        <tr>
+            <td>.onmouseover</td>
+            <td>El evento se activa cuando pones el mouse encima del elemento</td>
+            <td rowspan="2">quieres ponerte encima del input?
+                <br>
+                <input type="text" name="" id="mouse" value="No estas encima de mi" readonly>
+            </td>
+        </tr>
+        <tr>
+            <td>.onmouseover</td>
+            <td>El evento se activa cuando quitas el mouse del elemento</td>
+        </tr>
+        <tr>
+            <td>.onmousemove</td>
+            <td>El evento se activa pones el mouse encima del elemento</td>
+            <td>Soy adivino y puedo saber cuando mueves el mouse
+                <br>
+                <input type="text" name="" id="mousemove" value="No has movido el mouse" readonly>
+            </td>
+        </tr>
+        <tr>
+            <td>.onmousedown</td>
+            <td>El evento se activa pones el mouse encima del elemento</td>
+            <td rowspan="2">Soy adivino y puedo saber cuando haces click en cualquier parte de la pantalla
+                <br>
+                <input type="text" name="" id="mouseClick" value="No has movido el mouse" readonly>
+            </td>
+        </tr>
+        <tr>
+            <td>.onmouseup</td>
+            <td>El evento se activa cuando quitas el mouse del elemento</td>
+        </tr>
+        <tr>
+            <td>.onresize</td>
+            <td>El evento se activa cuando has cambiado el tamaño de la ventana.</td>
+            <td>Soy adivino y puedo saber cuando haces click en cualquier parte de la pantalla
+                <br>
+                <input type="text" name="" id="resize" value="No has cambiado el tamaño de la ventana" readonly>
+            </td>
+        </tr>
+        <tr>
+            <td>.onscroll</td>
+            <td>El evento se activa cuando seleccionas un texto.</td>
+            <td>Soy adivino y puedo saber cuando haces scroll en la pantalla
+                <br>
+                <input type="text" name="" id="scroll" value="No has hecho scroll" readonly>
+            </td>
+        </tr>
+    </table>
+    <script src="../dynamics/Actividad-11.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="../statics/pong.css">
+
+    <meta charset="utf-8">
+    <title>PingoPongo</title>
+  </head>
+  <body>
+    <section class="pong">
+      <div class="controles1">
+        <h1>Controles</h1>
+        <h2>Jugador 1</h2>
+        <div class="w">
+          <h4 class="letra">Arriba</h4>
+          <img src="https://image.flaticon.com/icons/png/512/31/31504.png" alt="Tecla W" width="50px">
+        </div>
+        <div class="s">
+          <h4 class="letra">Abajo</h4>
+          <img src="https://image.flaticon.com/icons/png/512/57/57062.png" alt="Tecla S" width="50px">
+        </div>
+      </div>
+      <div class="canvas">
+        <div class="Tablero">
+          <canvas id="tablero"></canvas>
+        </div>
+        <div class="puntuacion">
+          <h3 id="score"></h3>
+        </div>
+        <script type="text/javascript" src="../dynamics/ball.js"></script>
+        <script type="text/javascript" src="../dynamics/paddle.js"></script>
+        <script type="text/javascript" src="../dynamics/pong.js"></script>
+      </div>
+      <div class="controles2">
+        <h1>Controles</h1>
+        <h2>Jugador 2</h2>
+        <div class="arriba">
+          <h4 class="letra">Arriba</h4>
+          <img  src="https://image.flaticon.com/icons/png/512/17/17197.png" alt="Tecla W" width="50px">
+        </div>
+        <div class="abajo">
+          <h4 class="letra">Abajo</h4>
+          <img class="flechaAbajo" src="https://image.flaticon.com/icons/png/512/17/17197.png" alt="Tecla S" width="50px">
+        </div>
+      </div>
+    <section>
+    <section class="audio">
+      <div class="musica">
+        <audio src="../sounds/Armin van Buuren - Ping Pong (Hardwell Remix).mp3" controls autoplay></audio>
+      </div>
+    </section>
+  </body>
+</html>

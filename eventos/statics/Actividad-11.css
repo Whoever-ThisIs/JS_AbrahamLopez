@@ -1,0 +1,64 @@
+body{
+    margin: 0;
+    padding: 20px;
+    font-family: 'Lato', sans-serif;
+    background-color: rgb(106, 44, 39);
+}
+
+table{
+    margin: auto;
+    width: 80%;
+    border-spacing: 10px;
+    text-align: center;
+}
+
+td, th{
+    border-radius: 20px;
+    padding: 5px;
+    color: white;
+}
+
+th{
+    background-color: rgb(64, 26, 26);
+}
+
+td{
+    background-color: rgb(96, 149, 160);
+}
+
+h1{
+    border-radius: 2em;
+    text-align: center;
+    background-color: rgb(64, 26, 26);
+    color: white;
+    margin: 30px auto;
+    width: 40%;
+    padding: 4px;
+}
+
+input, button{
+    border: 1px gray solid;
+    border-radius: 2em;
+    padding: 3px 5px;
+    outline: none;
+    text-align: center;
+    background-color: rgb(219, 119, 87);
+    font-family: 'Lato', sans-serif;
+    color: white;
+}
+
+#nombre{
+    width: 20%;
+}
+
+#descripcion{
+    width: 30%;
+}
+
+#ejemplo{
+    width: 50%;
+}
+
+#mouse{
+    width: 40%;
+}

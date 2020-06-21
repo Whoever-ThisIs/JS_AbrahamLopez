@@ -1,0 +1,20 @@
+
+body{
+  background-color:#1e1f1e;
+}
+canvas {
+  border: 2px solid black;
+  background-color: #1e2129;
+}
+div{
+  display: flex;
+  justify-content: center;
+  font-family: 'Press Start 2P', cursive;
+}
+h1{
+  color: #767676;
+}
+#score{
+  font-size:50px;
+  color: white;
+}
